@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe: Ingrediente.java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe: Ingrediente.java</h1>
+        <p>
+            Questa classe rappresenta un'entità del database che modella un <strong>ingrediente</strong>.
+            È utilizzata per memorizzare le informazioni di base di ogni materia prima, come il nome, l'unità di misura con cui viene gestita e il suo costo.
+            Le annotazioni <code>@Entity</code> e <code>@Table</code> la definiscono come un'entità JPA mappata sulla tabella <code>ingredienti</code>.
+        </p>
+
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td><code>Long</code></td>
+                    <td>L'identificatore univoco (chiave primaria) dell'ingrediente. Viene generato automaticamente dal database.</td>
+                </tr>
+                <tr>
+                    <td><code>nome</code></td>
+                    <td><code>String</code></td>
+                    <td>Il nome commerciale o descrittivo dell'ingrediente (es. "Mozzarella fior di latte").</td>
+                </tr>
+                <tr>
+                    <td><code>unitaDiMisura</code></td>
+                    <td><code>String</code></td>
+                    <td>L'unità di base per la gestione e il costo (es. "kg", "litro", "pz").</td>
+                </tr>
+                <tr>
+                    <td><code>costoPerUnita</code></td>
+                    <td><code>double</code></td>
+                    <td>Il prezzo d'acquisto dell'ingrediente per la sua unità di misura (es. 5.50 se costa 5,50 € al kg).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="../index.html">Torna all'indice</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: RicettaController.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2980b9; border-bottom: 2px solid #2980b9; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        .get { color: #27ae60; font-weight: bold; }
+        .post { color: #e67e22; font-weight: bold; }
+        .delete { color: #c0392b; font-weight: bold; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Controller: RicettaController.java</h1>
+        <p>
+            Questo controller gestisce le ricette come "sotto-risorsa" di un prodotto finito. L'approccio RESTful prevede che il path per accedere alla ricetta di un prodotto includa l'ID del prodotto stesso, come si vede nel <code>@RequestMapping</code>.
+        </p>
+        <h2>Endpoint API Definiti</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metodo HTTP</th>
+                    <th>Path Relativo</th>
+                    <th>Descrizione</th>
+                    <th>Risposta di Successo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="get">GET</span></td>
+                    <td><code>/</code></td>
+                    <td>Recupera la lista di ingredienti per la ricetta del prodotto specificato.</td>
+                    <td><code>200 OK</code> con la lista di righe della ricetta.</td>
+                </tr>
+                <tr>
+                    <td><span class="post">POST</span></td>
+                    <td><code>/</code></td>
+                    <td>Aggiunge un ingrediente alla ricetta del prodotto specificato.</td>
+                    <td><code>201 Created</code> con la nuova riga della ricetta creata.</td>
+                </tr>
+                <tr>
+                    <td><span class="delete">DELETE</span></td>
+                    <td><code>/{ricettaId}</code></td>
+                    <td>Rimuove una specifica riga (un ingrediente) dalla ricetta, usando l'ID della riga stessa.</td>
+                    <td><code>204 No Content</code> con corpo vuoto.</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

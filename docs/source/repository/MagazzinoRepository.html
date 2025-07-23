@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaccia: MagazzinoRepository.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; border-bottom: 2px solid #d35400; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        .code-block { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code-block .keyword { color: #cc7832; }
+        .code-block .type { color: #a9b7c6; }
+        .code-block .method { color: #ffc66d; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #e67e22; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interfaccia Repository: MagazzinoRepository.java</h1>
+        <p>
+            Repository per l'entità <code>Magazzino</code>, che gestisce le scorte degli ingredienti.
+        </p>
+        <h3>Metodo Custom</h3>
+        <div class="code-block">
+            <span class="type">Optional</span>&lt;<span class="type">Magazzino</span>&gt; <span class="method">findByIngredienteId</span>(<span class="type">Long</span> ingredienteId);
+        </div>
+        <p>
+            Simile al repository delle ricette, abbiamo aggiunto <code>findByIngredienteId</code>. Questo metodo ci permette di trovare in modo efficiente la voce di magazzino associata a un specifico ingrediente tramite il suo ID. L'uso di <code>Optional</code> è una buona pratica perché la voce di magazzino per un dato ingrediente potrebbe non esistere, e ci costringe a gestire questo caso in modo sicuro.
+        </p>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

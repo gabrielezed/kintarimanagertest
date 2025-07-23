@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaccia: IngredienteRepository.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; border-bottom: 2px solid #d35400; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        .code-block { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code-block .keyword { color: #cc7832; }
+        .code-block .type { color: #a9b7c6; }
+        .code-block .interface { color: #9876aa; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #e67e22; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interfaccia Repository: IngredienteRepository.java</h1>
+        <p>
+            Questa è un'interfaccia <strong>Repository</strong>. In Spring Boot, i repository sono il meccanismo che gestisce tutte le operazioni con il database per una specifica entità.
+        </p>
+        <p>
+            Semplicemente estendendo <code>JpaRepository&lt;Ingrediente, Long&gt;</code>, Spring Data JPA fornirà automaticamente a questa interfaccia tutti i metodi standard per la gestione dei dati (CRUD - Create, Read, Update, Delete). Non è necessario scrivere alcuna implementazione.
+        </p>
+        <div class="code-block">
+           <span class="keyword">public interface</span> <span class="interface">IngredienteRepository</span> <span class="keyword">extends</span> <span class="type">JpaRepository</span>&lt;<span class="type">Ingrediente</span>, <span class="type">Long</span>&gt; { }
+        </div>
+        <ul>
+            <li><code>Ingrediente</code>: È l'entità che questo repository gestirà.</li>
+            <li><code>Long</code>: È il tipo della chiave primaria (l'ID) dell'entità <code>Ingrediente</code>.</li>
+        </ul>
+        <p>
+            In futuro, se avremo bisogno di metodi di ricerca più specifici (es. "trova ingrediente per nome"), potremo semplicemente dichiararli qui e Spring li implementerà per noi.
+        </p>
+
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

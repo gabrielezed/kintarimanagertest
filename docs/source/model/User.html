@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: User.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe Entità: User.java</h1>
+        <p>
+            Questa entità modella un <strong>utente</strong> del sistema, fondamentale per la gestione della sicurezza.
+            Le annotazioni <code>@Entity</code> e <code>@Table</code> la definiscono come un'entità JPA mappata sulla tabella <code>users</code>.
+        </p>
+
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td><code>Long</code></td>
+                    <td>L'identificatore univoco (chiave primaria) dell'utente.</td>
+                </tr>
+                <tr>
+                    <td><code>username</code></td>
+                    <td><code>String</code></td>
+                    <td>Il nome utente utilizzato per il login. Deve essere univoco.</td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td><code>String</code></td>
+                    <td>La password dell'utente. Verrà salvata nel database in formato criptato (hash BCrypt).</td>
+                </tr>
+                <tr>
+                    <td><code>roles</code></td>
+                    <td><code>String</code></td>
+                    <td>Una stringa che contiene i ruoli dell'utente, separati da virgola (es. "ROLE_ADMIN,ROLE_USER").</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="../index.html">Torna all'indice</a>
+    </div>
+</body>
+</html>

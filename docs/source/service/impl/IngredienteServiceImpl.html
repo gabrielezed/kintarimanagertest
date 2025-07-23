@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: IngredienteServiceImpl.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #16a085; border-bottom: 2px solid #16a085; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #1abc9c; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe Service: IngredienteServiceImpl.java</h1>
+        <p>
+            Questa classe è l'implementazione concreta dell'interfaccia <code>IngredienteService</code> e contiene la logica di business per la gestione degli ingredienti.
+        </p>
+        <p>
+            Utilizza l'annotazione <code>@Service</code> per essere identificata da Spring come un componente di servizio. L'annotazione <code>@Transactional</code> a livello di classe assicura che tutti i metodi pubblici siano eseguiti all'interno di una transazione del database.
+            Grazie a <code>@RequiredArgsConstructor</code> di Lombok, le dipendenze dichiarate come <code>final</code> (<code>IngredienteRepository</code> e <code>DtoMapper</code>) vengono iniettate automaticamente tramite il costruttore.
+        </p>
+        <a href="../../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

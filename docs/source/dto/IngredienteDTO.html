@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe: IngredienteDTO.java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50; /* Darker Blue */
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db; /* Bright Blue */
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe DTO: IngredienteDTO.java</h1>
+        <p>
+            Questo è un <strong>Data Transfer Object (DTO)</strong>. Il suo scopo è quello di trasportare i dati dell'entità <code>Ingrediente</code> tra il server e il client in modo efficiente.
+            A differenza dell'entità JPA, un DTO è una classe semplice che contiene solo i dati da mostrare o da ricevere, senza logica di business o dettagli legati al database. Questo migliora la sicurezza e le prestazioni.
+        </p>
+
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td><code>Long</code></td>
+                    <td>L'identificatore univoco dell'ingrediente.</td>
+                </tr>
+                <tr>
+                    <td><code>nome</code></td>
+                    <td><code>String</code></td>
+                    <td>Il nome dell'ingrediente.</td>
+                </tr>
+                <tr>
+                    <td><code>unitaDiMisura</code></td>
+                    <td><code>String</code></td>
+                    <td>L'unità di misura per la gestione a magazzino.</td>
+                </tr>
+                <tr>
+                    <td><code>costoPerUnita</code></td>
+                    <td><code>double</code></td>
+                    <td>Il costo per singola unità di misura.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

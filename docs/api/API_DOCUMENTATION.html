@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentazione API REST - KintariManager</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        h2 { margin-top: 40px; }
+        h3 { font-size: 1.2em; border-bottom: 1px solid #eee; }
+        p { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #0056b3; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; white-space: pre-wrap; font-family: "Courier New", Courier, monospace; }
+        code { font-family: "Courier New", Courier, monospace; background-color: #eef; padding: 2px 4px; border-radius: 3px; }
+        .method { font-weight: bold; padding: 3px 8px; border-radius: 4px; color: white; font-family: "Courier New", Courier, monospace; font-size: 0.9em; }
+        .get { background-color: #28a745; }
+        .post { background-color: #17a2b8; }
+        .put { background-color: #ffc107; color: #333}
+        .delete { background-color: #dc3545; }
+        .auth-note { background-color: #fff3cd; border-left: 5px solid #ffeeba; padding: 15px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentazione API REST</h1>
+        <p>
+            Questa documentazione elenca tutti gli endpoint disponibili nel backend di KintariManager.
+        </p>
+
+        <div class="auth-note">
+            <p>
+                <strong>Nota sulla Sicurezza:</strong> Tutti gli endpoint descritti di seguito richiedono l'autenticazione tramite <strong>HTTP Basic Auth</strong>.
+                È necessario inviare un header <code>Authorization</code> con le credenziali (es. <code>user:password</code>) codificate in Base64.
+            </p>
+        </div>
+
+        <h2>Controller: Ingrediente & Prodotto Finito</h2>
+        <p>Gestiscono le operazioni CRUD per le anagrafiche degli ingredienti e dei prodotti finiti.</p>
+        <table>
+             <tr><th>Metodi</th><td><span class="method get">GET</span> <span class="method post">POST</span> <span class="method put">PUT</span> <span class="method delete">DELETE</span></td></tr>
+             <tr><th>Endpoint</th><td><code>/api/ingredienti</code> e <code>/api/prodotti-finiti</code></td></tr>
+             <tr><th>Ruoli Richiesti</th><td><code>ROLE_ADMIN</code></td></tr>
+        </table>
+        
+        <h2>Controller: Ricetta</h2>
+        <p>Gestisce la ricetta associata a un prodotto finito.</p>
+         <table>
+             <tr><th>Metodi</th><td><span class="method get">GET</span> <span class="method post">POST</span> <span class="method delete">DELETE</span></td></tr>
+             <tr><th>Endpoint</th><td><code>/api/prodotti-finiti/{prodottoId}/ricetta</code></td></tr>
+             <tr><th>Ruoli Richiesti</th><td><code>ROLE_ADMIN</code></td></tr>
+        </table>
+
+        <h2>Controller: Magazzino</h2>
+        <p>Gestisce lo stato delle scorte degli ingredienti nel magazzino.</p>
+        <table>
+             <tr><th>Metodi</th><td><span class="method get">GET</span> <span class="method put">PUT</span></td></tr>
+             <tr><th>Endpoint</th><td><code>/api/magazzino/**</code></td></tr>
+             <tr><th>Ruoli Richiesti</th><td><code>ROLE_ADMIN</code></td></tr>
+        </table>
+
+        <h2>Controller: Ordine</h2>
+        <p>Gestisce la creazione di un ordine e il conseguente scarico dal magazzino.</p>
+        <h3>1. Crea un nuovo ordine</h3>
+        <table>
+            <tr><th>Metodo</th><td><span class="method post">POST</span></td></tr>
+            <tr><th>URL</th><td><code>/api/ordini</code></td></tr>
+            <tr><th>Ruoli Richiesti</th><td><code>ROLE_USER</code>, <code>ROLE_ADMIN</code></td></tr>
+            <tr><th>Descrizione</th><td>Crea un ordine complesso contenente più prodotti e scarica gli ingredienti necessari dal magazzino in modo atomico.</td></tr>
+        </table>
+        <h4>Corpo della Richiesta (Esempio)</h4>
+        <pre>{
+  "prodotti": [
+    { "prodottoId": 1, "quantita": 2 },
+    { "prodottoId": 2, "quantita": 1 }
+  ]
+}</pre>
+
+        <a href="../index.html">Torna all'indice generale</a>
+    </div>
+</body>
+</html>

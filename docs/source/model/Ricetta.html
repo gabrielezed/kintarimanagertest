@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe: Ricetta.java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe: Ricetta.java</h1>
+        <p>
+            Questa entità è il cuore del calcolo del food cost. Funziona come una "tabella di giunzione" che collega un <code>ProdottoFinito</code> ai suoi <code>Ingrediente</code> costituenti.
+            Ogni record in questa tabella rappresenta una riga della ricetta di un prodotto, specificando un ingrediente e la quantità necessaria di esso.
+        </p>
+
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td><code>Long</code></td>
+                    <td>L'identificatore univoco (chiave primaria) della riga della ricetta.</td>
+                </tr>
+                <tr>
+                    <td><code>prodottoFinito</code></td>
+                    <td><code>ProdottoFinito</code></td>
+                    <td>Un riferimento (chiave esterna) al prodotto a cui questa ricetta appartiene. È una relazione Molti-a-Uno: molte righe di ricetta appartengono a un prodotto.</td>
+                </tr>
+                <tr>
+                    <td><code>ingrediente</code></td>
+                    <td><code>Ingrediente</code></td>
+                    <td>Un riferimento (chiave esterna) all'ingrediente utilizzato in questa riga della ricetta. È una relazione Molti-a-Uno: molte righe di ricetta possono usare lo stesso ingrediente.</td>
+                </tr>
+                <tr>
+                    <td><code>quantita</code></td>
+                    <td><code>double</code></td>
+                    <td>La quantità dell'ingrediente necessaria per la ricetta. L'unità di misura è implicitamente quella definita nel relativo oggetto <code>Ingrediente</code>.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="../index.html">Torna all'indice</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: JpaUserDetailsService.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #16a085; border-bottom: 2px solid #16a085; padding-bottom: 10px; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #1abc9c; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe Service: JpaUserDetailsService.java</h1>
+        <p>
+            Questa classe è un componente cruciale per l'integrazione con Spring Security. Implementa l'interfaccia <code>UserDetailsService</code>, che definisce un contratto per caricare i dati di un utente.
+        </p>
+        <p>
+            Il suo metodo <code>loadUserByUsername</code> viene invocato automaticamente da Spring Security durante il processo di login. Utilizza il <code>UserRepository</code> per trovare l'utente nel database e lo converte in un oggetto <code>UserDetails</code>, il formato standard che Spring Security utilizza per gestire le informazioni di autenticazione e autorizzazione (username, password e ruoli).
+        </p>
+        <a href="../../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

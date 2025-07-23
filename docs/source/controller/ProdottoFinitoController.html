@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: ProdottoFinitoController.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2980b9; border-bottom: 2px solid #2980b9; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        .get { color: #27ae60; font-weight: bold; }
+        .post { color: #e67e22; font-weight: bold; }
+        .put { color: #8e44ad; font-weight: bold; }
+        .delete { color: #c0392b; font-weight: bold; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Controller: ProdottoFinitoController.java</h1>
+        <p>
+            Questo REST Controller espone gli endpoint per la gestione CRUD (Create, Read, Update, Delete) dei prodotti finiti (es. pizze, bevande).
+            L'annotazione <code>@RequestMapping</code> imposta il percorso base <code>/api/v1/prodotti-finiti</code> per tutte le operazioni.
+        </p>
+        <h2>Endpoint API Definiti</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metodo HTTP</th>
+                    <th>Path Relativo</th>
+                    <th>Descrizione</th>
+                    <th>Risposta di Successo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="get">GET</span></td>
+                    <td><code>/</code></td>
+                    <td>Recupera la lista di tutti i prodotti finiti.</td>
+                    <td><code>200 OK</code> con la lista di prodotti nel corpo.</td>
+                </tr>
+                <tr>
+                    <td><span class="get">GET</span></td>
+                    <td><code>/{id}</code></td>
+                    <td>Recupera un singolo prodotto finito tramite il suo ID.</td>
+                    <td><code>200 OK</code> con il prodotto nel corpo.</td>
+                </tr>
+                <tr>
+                    <td><span class="post">POST</span></td>
+                    <td><code>/</code></td>
+                    <td>Crea un nuovo prodotto finito.</td>
+                    <td><code>201 Created</code> con il prodotto creato nel corpo.</td>
+                </tr>
+                <tr>
+                    <td><span class="put">PUT</span></td>
+                    <td><code>/{id}</code></td>
+                    <td>Aggiorna un prodotto finito esistente.</td>
+                    <td><code>200 OK</code> con il prodotto aggiornato nel corpo.</td>
+                </tr>
+                <tr>
+                    <td><span class="delete">DELETE</span></td>
+                    <td><code>/{id}</code></td>
+                    <td>Elimina un prodotto finito tramite il suo ID.</td>
+                    <td><code>204 No Content</code> con corpo vuoto.</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: RicettaServiceImpl.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #16a085; border-bottom: 2px solid #16a085; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #1abc9c; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe Service: RicettaServiceImpl.java</h1>
+        <p>
+            Questa classe implementa la logica di business per la gestione delle ricette, come definito in <code>RicettaService</code>.
+        </p>
+        <p>
+            È un servizio più complesso perché deve coordinare le operazioni tra più repository (<code>RicettaRepository</code>, <code>ProdottoFinitoRepository</code>, e <code>IngredienteRepository</code>).
+            Ad esempio, il metodo <code>addIngredienteToRicetta</code> prima si assicura che sia il prodotto che l'ingrediente esistano nel database. Se non li trova, lancia un'eccezione <code>EntityNotFoundException</code> per segnalare il problema. Solo se entrambi esistono, procede con la creazione e il salvataggio della nuova riga della ricetta.
+        </p>
+        <a href="../../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

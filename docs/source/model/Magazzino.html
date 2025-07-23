@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe: Magazzino.java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe: Magazzino.java</h1>
+        <p>
+            Questa entità rappresenta lo <strong>stato delle scorte</strong> per ogni ingrediente.
+            È fondamentale per la gestione dell'inventario. Ogni record in questa tabella indica la quantità attualmente disponibile di un singolo ingrediente e una soglia minima per eventuali avvisi di riordino.
+            La relazione <code>@OneToOne</code> con <code>Ingrediente</code> assicura che per ogni ingrediente esista un'unica voce di magazzino.
+        </p>
+
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>id</code></td>
+                    <td><code>Long</code></td>
+                    <td>L'identificatore univoco (chiave primaria) della voce di magazzino.</td>
+                </tr>
+                <tr>
+                    <td><code>ingrediente</code></td>
+                    <td><code>Ingrediente</code></td>
+                    <td>Il riferimento (chiave esterna univoca) all'ingrediente di cui si sta tracciando la scorta.</td>
+                </tr>
+                <tr>
+                    <td><code>quantitaDisponibile</code></td>
+                    <td><code>double</code></td>
+                    <td>La quantità di ingrediente attualmente disponibile in magazzino. Si basa sull'unità di misura definita nell'ingrediente.</td>
+                </tr>
+                 <tr>
+                    <td><code>sogliaMinima</code></td>
+                    <td><code>double</code></td>
+                    <td>La quantità al di sotto della quale il sistema dovrebbe segnalare la necessità di riordinare l'ingrediente.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="../index.html">Torna all'indice</a>
+    </div>
+</body>
+</html>

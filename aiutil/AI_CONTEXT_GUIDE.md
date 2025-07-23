@@ -1,0 +1,61 @@
+### Struttura del Progetto (File Creati)
+
+-   `docs/index.html`
+-   `docs/source/index.html`
+-   **Model:**
+     -   `src/main/java/com/kintari/kintarimanager/model/Ingrediente.java`
+     -   `docs/source/Ingrediente.html`
+     -   `src/main/java/com/kintari/kintarimanager/model/ProdottoFinito.java`
+     -   `docs/source/ProdottoFinito.html`
+     -   `src/main/java/com/kintari/kintarimanager/model/Ricetta.java`
+     -   `docs/source/Ricetta.html`
+     -   `src/main/java/com/kintari/kintarimanager/model/Magazzino.java`
+     -   `docs/source/Magazzino.html`
+-   **DTO:**
+    -   `src/main/java/com/kintari/kintarimanager/dto/IngredienteDTO.java`
+    -   `docs/source/dto/IngredienteDTO.html`
+    -   `src/main/java/com/kintari/kintarimanager/dto/ProdottoFinitoDTO.java`
+    -   `docs/source/dto/ProdottoFinitoDTO.html`
+    -   `src/main/java/com/kintari/kintarimanager/dto/RicettaDTO.java`
+    -   `docs/source/dto/RicettaDTO.html`
+    -   `src/main/java/com/kintari/kintarimanager/dto/MagazzinoDTO.java`
+    -   `docs/source/dto/MagazzinoDTO.html`
+-   **Repository:**
+     -   `src/main/java/com/kintari/kintarimanager/repository/IngredienteRepository.java`
+    -   `docs/source/repository/IngredienteRepository.html`
+    -   `src/main/java/com/kintari/kintarimanager/repository/ProdottoFinitoRepository.java`
+    -   `docs/source/repository/ProdottoFinitoRepository.html`
+    -   `src/main/java/com/kintari/kintarimanager/repository/RicettaRepository.java`
+    -   `docs/source/repository/RicettaRepository.html`
+    -   `src/main/java/com/kintari/kintarimanager/repository/MagazzinoRepository.java`
+    -   `docs/source/repository/MagazzinoRepository.html`
+   -   **Service:**
+     -   `src/main/java/com/kintari/kintarimanager/service/mapper/DtoMapper.java`
+    -   `docs/source/service/mapper/DtoMapper.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/IngredienteService.java`
+    -   `docs/source/service/IngredienteService.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/ProdottoFinitoService.java`
+    -   `docs/source/service/ProdottoFinitoService.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/RicettaService.java`
+    -   `docs/source/service/RicettaService.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/MagazzinoService.java`
+    -   `docs/source/service/MagazzinoService.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/impl/IngredienteServiceImpl.java`
+    -   `docs/source/service/impl/IngredienteServiceImpl.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/impl/ProdottoFinitoServiceImpl.java`
+    -   `docs/source/service/impl/ProdottoFinitoServiceImpl.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/impl/RicettaServiceImpl.java`
+    -   `docs/source/service/impl/RicettaServiceImpl.html`
+    -   `src/main/java/com/kintari/kintarimanager/service/impl/MagazzinoServiceImpl.java`
+    -   `docs/source/service/impl/MagazzinoServiceImpl.html`
+-   **Controller:**
+     -   `src/main/java/com/kintari/kintarimanager/controller/IngredienteController.java`
+    -   `docs/source/controller/IngredienteController.html`
+    -   `src/main/java/com/kintari/kintarimanager/controller/ProdottoFinitoController.java`
+    -   `docs/source/controller/ProdottoFinitoController.html`
+    -   `src/main/java/com/kintari/kintarimanager/controller/RicettaController.java`
+    -   `docs/source/controller/RicettaController.html`
+    -   `src/main/java/com/kintari/kintarimanager/controller/MagazzinoController.java`
+    -   `docs/source/controller/MagazzinoController.html`
+-   **Configurazione:**
+    -   `src/main/java/com/kintari/kintarimanager/config/SecurityConfiguration.java`

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaccia: RicettaRepository.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #d35400; border-bottom: 2px solid #d35400; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        .code-block { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .code-block .keyword { color: #cc7832; }
+        .code-block .type { color: #a9b7c6; }
+        .code-block .interface { color: #9876aa; }
+        .code-block .method { color: #ffc66d; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #e67e22; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interfaccia Repository: RicettaRepository.java</h1>
+        <p>
+            Questo repository è dedicato all'entità <code>Ricetta</code>. Oltre ai metodi CRUD standard, qui abbiamo aggiunto un metodo custom.
+        </p>
+        <h3>Metodo Custom</h3>
+        <div class="code-block">
+            <span class="type">List</span>&lt;<span class="type">Ricetta</span>&gt; <span class="method">findByProdottoFinitoId</span>(<span class="type">Long</span> prodottoFinitoId);
+        </div>
+        <p>
+            Questo metodo, <code>findByProdottoFinitoId</code>, è un esempio della potenza di Spring Data JPA. Semplicemente dichiarando un metodo con questo nome, Spring capisce che vogliamo trovare tutte le entità <code>Ricetta</code> che hanno un campo <code>prodottoFinito</code> con un certo <code>id</code>. Ci permette di recuperare facilmente l'intera ricetta di un prodotto.
+        </p>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

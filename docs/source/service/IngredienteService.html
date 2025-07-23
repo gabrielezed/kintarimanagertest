@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Interfaccia: IngredienteService.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #16a085; border-bottom: 2px solid #16a085; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #1abc9c; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #1abc9c; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #16a085; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interfaccia Service: IngredienteService.java</h1>
+        <p>
+            Questa interfaccia definisce il <strong>contratto</strong> per tutte le operazioni di business legate all'entità <code>Ingrediente</code>.
+            Stabilisce quali metodi devono essere implementati dalla classe di servizio concreta, garantendo un'architettura disaccoppiata e pulita.
+            Notare come i metodi operino utilizzando i <strong>DTO</strong> (<code>IngredienteDTO</code>) e non le entità JPA, per mantenere separati il livello di business da quello di persistenza.
+        </p>
+
+        <h2>Metodi Definiti</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Metodo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>findAllIngredienti()</code></td>
+                    <td>Restituisce una lista di tutti gli ingredienti presenti nel sistema.</td>
+                </tr>
+                <tr>
+                    <td><code>findIngredienteById(Long id)</code></td>
+                    <td>Cerca un singolo ingrediente tramite il suo ID. Restituisce un <code>Optional</code> per gestire il caso in cui l'ingrediente non venga trovato.</td>
+                </tr>
+                <tr>
+                    <td><code>saveIngrediente(IngredienteDTO dto)</code></td>
+                    <td>Salva un nuovo ingrediente o aggiorna uno esistente. Accetta un DTO come input e restituisce il DTO dell'oggetto salvato (che includerà l'ID generato).</td>
+                </tr>
+                <tr>
+                    <td><code>deleteIngrediente(Long id)</code></td>
+                    <td>Elimina un ingrediente dal sistema basandosi sul suo ID.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

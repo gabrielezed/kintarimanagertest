@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: ProdottoFinitoDTO.java</title>
+    <link rel="stylesheet" href="../style.css"> <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe DTO: ProdottoFinitoDTO.java</h1>
+        <p>
+            DTO per trasferire le informazioni essenziali di un <code>ProdottoFinito</code>.
+            Viene usato per rappresentare un prodotto del menu in liste o viste di dettaglio, contenendo i dati principali come nome, categoria e prezzo di vendita.
+        </p>
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>id</code></td><td><code>Long</code></td><td>L'ID univoco del prodotto.</td></tr>
+                <tr><td><code>nome</code></td><td><code>String</code></td><td>Il nome del prodotto come appare nel menu.</td></tr>
+                <tr><td><code>categoria</code></td><td><code>String</code></td><td>La categoria di appartenenza (es. "Pizze", "Bevande").</td></tr>
+                <tr><td><code>prezzoVendita</code></td><td><code>double</code></td><td>Il prezzo di vendita al cliente.</td></tr>
+            </tbody>
+        </table>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

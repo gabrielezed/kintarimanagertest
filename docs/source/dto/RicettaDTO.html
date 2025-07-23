@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: RicettaDTO.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe DTO: RicettaDTO.java</h1>
+        <p>
+            DTO progettato per rappresentare una singola riga della ricetta di un prodotto.
+            È pensato per essere usato all'interno di una lista per mostrare la composizione di un prodotto. Per comodità, include non solo l'ID dell'ingrediente ma anche il suo nome e l'unità di misura, evitando al client di dover fare ulteriori chiamate.
+        </p>
+        <h2>Campi della Classe</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Variabile</th>
+                    <th>Tipo</th>
+                    <th>Descrizione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>id</code></td><td><code>Long</code></td><td>L'ID univoco della riga di ricetta.</td></tr>
+                <tr><td><code>ingredienteId</code></td><td><code>Long</code></td><td>L'ID dell'ingrediente associato.</td></tr>
+                <tr><td><code>ingredienteNome</code></td><td><code>String</code></td><td>Il nome dell'ingrediente (denormalizzato per comodità).</td></tr>
+                <tr><td><code>quantita</code></td><td><code>double</code></td><td>La quantità necessaria di ingrediente.</td></tr>
+                <tr><td><code>unitaDiMisura</code></td><td><code>String</code></td><td>L'unità di misura dell'ingrediente (denormalizzata per comodità).</td></tr>
+            </tbody>
+        </table>
+        <a href="../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>

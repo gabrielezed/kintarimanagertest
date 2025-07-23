@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Classe: DtoMapper.java</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #8e44ad; border-bottom: 2px solid #8e44ad; padding-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        code { background-color: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: "Courier New", Courier, monospace;}
+        a { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #9b59b6; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #8e44ad; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classe Mapper: DtoMapper.java</h1>
+        <p>
+            Questa è una classe di utilità, annotata come <code>@Component</code> per renderla un "bean" di Spring e poterla quindi "iniettare" in altre classi (come i nostri servizi).
+        </p>
+        <p>
+            Il suo unico scopo è quello di fornire metodi per <strong>convertire le Entità JPA in DTO e viceversa</strong>. Centralizzare questa logica in una singola classe ci permette di:
+        </p>
+        <ul>
+            <li><strong>Evitare duplicazione di codice:</strong> Non dobbiamo riscrivere la logica di mappatura in ogni servizio.</li>
+            <li><strong>Semplificare la manutenzione:</strong> Se un DTO cambia, modifichiamo la sua logica di mappatura in un solo punto.</li>
+            <li><strong>Mantenere i servizi puliti:</strong> I servizi si concentrano sulla logica di business, delegando il "lavoro sporco" della conversione a questo componente.</li>
+        </ul>
+        <p>
+            Ogni metodo <code>toDto</code> prende un'entità e restituisce il suo DTO corrispondente, mentre ogni metodo <code>toEntity</code> fa l'operazione inversa.
+        </p>
+        <a href="../../index.html">Torna all'indice del codice</a>
+    </div>
+</body>
+</html>
