@@ -8,7 +8,7 @@ Questa TODO list unificata combina le priorità strategiche del report di avanza
 
 Queste attività sono fondamentali e propedeutiche allo sviluppo di nuove funzionalità.
 
-- [ ] **Database Persistente:** Configurare un database di produzione (es. PostgreSQL o MySQL) per sostituire H2.
+- [ ] **Database Persistente:** Configurare un database di produzione (PostgreSQL) per sostituire H2 temporaneo.
 - [ ] **Autenticazione Utente:**
     - [ ] Implementare l'autenticazione tramite `formLogin` in `SecurityConfiguration`.
     - [ ] Creare una pagina di login (`login.html`) per il frontend.
@@ -26,26 +26,41 @@ Queste attività sono fondamentali e propedeutiche allo sviluppo di nuove funzio
 
 ---
 
+### ✅ SWAGGER/OPENAPI INTEGRATION (Completato - 24/07/2025)
+
+- [x] **Dipendenza Maven:** Aggiunta `springdoc-openapi-starter-webmvc-ui` v2.2.0
+- [x] **Configurazione:** Creata `OpenApiConfiguration` con metadati completi e sicurezza HTTP Basic Auth
+- [x] **Properties:** Configurazione Swagger UI personalizzata (`/swagger-ui.html`, filtri API, ordinamento)
+- [x] **Annotazioni Controller:** Documentazione completa di tutti i controller REST:
+    - [x] `IngredienteController` - Gestione ingredienti e materie prime
+    - [x] `ProdottoFinitoController` - Gestione prodotti del menu
+    - [x] `RicettaController` - Gestione ricette (nested resource)
+    - [x] `MagazzinoController` - Gestione scorte e inventario
+    - [x] `OrdineController` - Processamento ordini con scarico automatico
+- [x] **Test Integration:** Swagger UI funzionante con autenticazione e test endpoint attivi
+
+---
+
 ### FASE 2: Implementazione Funzionalità Core (Criticità: ALTA)
 
 L'obiettivo di questa fase è costruire le fondamenta per la registrazione dei dati e popolare le interfacce di base.
 
 #### 2.1 Backend: Modulo Ordini e Storico Vendite
-* [ ] **Database:** Creare le entità JPA `Ordine` e `DettaglioOrdine`.
-* [ ] **Servizio:** Modificare `OrdineServiceImpl` per salvare un record persistente dell'ordine nel database dopo lo scarico del magazzino.
-* [ ] **Repository:** Creare i relativi Spring Data JPA Repository per le nuove entità.
+* [ ] **Database:** Creare le entità JPA `Ordine` e `DettaglioOrdine`
+* [ ] **Servizio:** Modificare `OrdineServiceImpl` per salvare un record persistente dell'ordine nel database dopo lo scarico del magazzino
+* [ ] **Repository:** Creare i relativi Spring Data JPA Repository per le nuove entità
 
 #### 2.2 Backend: Modulo Finanziario
-* [ ] **Database:** Creare l'entità JPA `FatturaAcquisto` per tracciare i costi.
-* [ ] **Backend:** Sviluppare lo stack CRUD completo (DTO, Controller, Service, Repository) per le fatture d'acquisto.
+* [ ] **Database:** Creare l'entità JPA `FatturaAcquisto` per tracciare i costi
+* [ ] **Backend:** Sviluppare lo stack CRUD completo (DTO, Controller, Service, Repository) per le fatture d'acquisto
 
 #### 2.3 Frontend: Popolamento Pagine CRUD
-* [ ] **Controller MVC:** Implementare nei metodi del `ViewController` il passaggio di dati (`Model`) dal service alle viste.
-* [ ] **Pagina Ingredienti:** Popolare `ingredienti.html` con una tabella che mostri gli ingredienti esistenti. Aggiungere i form per la creazione e la modifica.
-* [ ] **Pagina Prodotti:** Popolare `prodotti.html` con la lista dei prodotti e i relativi form di gestione.
-* [ ] **Pagina Ricette:** Creare e sviluppare `ricetta.html` per visualizzare e modificare la ricetta di un singolo prodotto.
-* [ ] **Pagina Magazzino:** Popolare `magazzino.html` con una tabella dinamica che mostri lo stato aggiornato delle scorte.
-* [ ] **Pagina Fatture:** Creare `fatture.html` con un form per l'inserimento delle fatture d'acquisto.
+* [ ] **Controller MVC:** Implementare nei metodi del `ViewController` il passaggio di dati (`Model`) dal service alle viste
+* [ ] **Pagina Ingredienti:** Popolare `ingredienti.html` con una tabella che mostri gli ingredienti esistenti. Aggiungere i form per la creazione e la modifica
+* [ ] **Pagina Prodotti:** Popolare `prodotti.html` con la lista dei prodotti e i relativi form di gestione
+* [ ] **Pagina Ricette:** Creare e sviluppare `ricetta.html` per visualizzare e modificare la ricetta di un singolo prodotto
+* [ ] **Pagina Magazzino:** Popolare `magazzino.html` con una tabella dinamica che mostri lo stato aggiornato delle scorte
+* [ ] **Pagina Fatture:** Creare `fatture.html` con un form per l'inserimento delle fatture d'acquisto
 
 ---
 
@@ -72,12 +87,4 @@ Completare il software con le funzionalità secondarie.
     * [ ] Aggiungere la funzionalità di stampa comanda dall'interfaccia.
 * [ ] **Sicurezza Avanzata (Criticità: BASSA):**
     * [ ] Implementare un `AttributeConverter` per la crittografia AES su campi sensibili.
-    * [ ] Realizzare la funzionalità "Secret Admin" come da specifiche.
-
----
-
-### FASE 5: Documentazione e Finalizzazione
-
-Rifinire il progetto per la consegna o la manutenzione futura.
-
-* [ ] **README:** Aggiornare il `README.md` principale del progetto con una descrizione completa, istruzioni di installazione e di avvio.
+    * [ ]
