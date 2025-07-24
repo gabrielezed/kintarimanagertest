@@ -77,6 +77,11 @@ Rendere i dati raccolti utili e accessibili.
 ### FASE 4: Funzionalità Aggiuntive e Integrazioni
 
 Completare il software con le funzionalità secondarie.
+* [ ] **Dockerizzazione per Deployment (Criticità: MEDIA):**
+    * [ ] Dockerfile per l'applicazione Spring Boot
+    * [ ] docker-compose.yml con PostgreSQL + App
+    * [ ] Script di inizializzazione database
+    * [ ] Documentazione deployment per pizzeria
 
 * [ ] **Gestione Personale (Criticità: BASSA):**
     * [ ] Creare l'entità `Fattorino`.
@@ -88,3 +93,4 @@ Completare il software con le funzionalità secondarie.
 * [ ] **Sicurezza Avanzata (Criticità: BASSA):**
     * [ ] Implementare un `AttributeConverter` per la crittografia AES su campi sensibili.
     * [ ]
+    

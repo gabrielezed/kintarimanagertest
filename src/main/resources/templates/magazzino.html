@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(title=~{::title}, content=~{::section})}">
 <head>
-    <title>Gestione Magazzino</title>
+    <title>Gestione Magazzino - KintariManager</title>
 </head>
 <body>
     <section>
         <h1>Stato del Magazzino</h1>
         <p>Qui verrà visualizzata la tabella con lo stato delle scorte di ogni ingrediente.</p>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 6px;">
+            <h3>🔧 In Sviluppo</h3>
+            <p>Questa sezione sarà completata nella <strong>FASE 2</strong> del progetto.</p>
+            <p>Per ora puoi utilizzare le <a th:href="@{/swagger-ui.html}" style="color: #3498db;">API REST</a> per gestire il magazzino.</p>
+        </div>
     </section>
 </body>
 </html>
