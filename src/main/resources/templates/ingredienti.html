@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Gestione Ingredienti</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Gestione Ingredienti</h1>
+                
+                <!-- Pulsante Aggiungi -->
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addIngredienteModal">
+                    <i class="bi bi-plus-circle"></i> Aggiungi Ingrediente
+                </button>
+                
+                <!-- Tabella Ingredienti -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Unità di Misura</th>
+                                <th>Costo per Unità</th>
+                                <th>Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="ingrediente : ${ingredienti}">
+                                <td th:text="${ingrediente.id}">1</td>
+                                <td th:text="${ingrediente.nome}">Farina</td>
+                                <td th:text="${ingrediente.unitaDiMisura}">kg</td>
+                                <td th:text="${#numbers.formatCurrency(ingrediente.costoPerUnita)}">€ 1.50</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-warning"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#editIngredienteModal"
+                                            th:data-id="${ingrediente.id}"
+                                            th:data-nome="${ingrediente.nome}"
+                                            th:data-unita="${ingrediente.unitaDiMisura}"
+                                            th:data-costo="${ingrediente.costoPerUnita}">
+                                        <i class="bi bi-pencil"></i> Modifica
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#deleteIngredienteModal"
+                                            th:data-id="${ingrediente.id}"
+                                            th:data-nome="${ingrediente.nome}">
+                                        <i class="bi bi-trash"></i> Elimina
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Messaggio se non ci sono ingredienti -->
+                <div th:if="${#lists.isEmpty(ingredienti)}" class="alert alert-info" role="alert">
+                    Nessun ingrediente presente nel sistema. Clicca su "Aggiungi Ingrediente" per iniziare.
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Aggiungi Ingrediente -->
+        <div class="modal fade" id="addIngredienteModal" tabindex="-1" aria-labelledby="addIngredienteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addIngredienteModalLabel">Nuovo Ingrediente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form th:action="@{/ingredienti}" method="post" th:object="${nuovoIngrediente}">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="unitaDiMisura" class="form-label">Unità di Misura</label>
+                                <input type="text" class="form-control" id="unitaDiMisura" th:field="*{unitaDiMisura}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="costoPerUnita" class="form-label">Costo per Unità (€)</label>
+                                <input type="number" step="0.01" class="form-control" id="costoPerUnita" th:field="*{costoPerUnita}" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <button type="submit" class="btn btn-primary">Salva</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modifica Ingrediente -->
+        <div class="modal fade" id="editIngredienteModal" tabindex="-1" aria-labelledby="editIngredienteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editIngredienteModalLabel">Modifica Ingrediente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="editIngredienteForm" method="post">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="editNome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="editNome" name="nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editUnitaDiMisura" class="form-label">Unità di Misura</label>
+                                <input type="text" class="form-control" id="editUnitaDiMisura" name="unitaDiMisura" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editCostoPerUnita" class="form-label">Costo per Unità (€)</label>
+                                <input type="number" step="0.01" class="form-control" id="editCostoPerUnita" name="costoPerUnita" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Conferma Eliminazione -->
+        <div class="modal fade" id="deleteIngredienteModal" tabindex="-1" aria-labelledby="deleteIngredienteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteIngredienteModalLabel">Conferma Eliminazione</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Sei sicuro di voler eliminare l'ingrediente <strong id="deleteIngredienteNome"></strong>?</p>
+                        <p class="text-danger">Questa azione non può essere annullata.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                        <form id="deleteIngredienteForm" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Conferma Eliminazione</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript per gestire i modal -->
+        <script>
+            // Modal Modifica
+            const editIngredienteModal = document.getElementById('editIngredienteModal');
+            editIngredienteModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const id = button.getAttribute('data-id');
+                const nome = button.getAttribute('data-nome');
+                const unita = button.getAttribute('data-unita');
+                const costo = button.getAttribute('data-costo');
+                
+                const form = editIngredienteModal.querySelector('#editIngredienteForm');
+                form.action = '/ingredienti/update/' + id;
+                
+                document.getElementById('editNome').value = nome;
+                document.getElementById('editUnitaDiMisura').value = unita;
+                document.getElementById('editCostoPerUnita').value = costo;
+            });
+
+            // Modal Elimina
+            const deleteIngredienteModal = document.getElementById('deleteIngredienteModal');
+            deleteIngredienteModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const id = button.getAttribute('data-id');
+                const nome = button.getAttribute('data-nome');
+                
+                const form = deleteIngredienteModal.querySelector('#deleteIngredienteForm');
+                form.action = '/ingredienti/delete/' + id;
+                
+                document.getElementById('deleteIngredienteNome').textContent = nome;
+            });
+        </script>
+    </div>
+</body>
+</html>

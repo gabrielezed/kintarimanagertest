@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Stato Magazzino</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Stato del Magazzino</h1>
+                
+                <!-- Tabella Stato Magazzino -->
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID Ingrediente</th>
+                                <th>Nome Ingrediente</th>
+                                <th>Quantità Disponibile</th>
+                                <th>Unità di Misura</th>
+                                <th>Stato</th>
+                                <th>Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="scorta : ${statoMagazzino}">
+                                <td th:text="${scorta.ingrediente.id}">1</td>
+                                <td th:text="${scorta.ingrediente.nome}">Farina</td>
+                                <td th:text="${#numbers.formatDecimal(scorta.quantitaDisponibile, 1, 2)}">10.00</td>
+                                <td th:text="${scorta.ingrediente.unitaDiMisura}">kg</td>
+                                <td>
+                                    <span class="badge" 
+                                          th:classappend="${scorta.quantitaDisponibile < scorta.sogliaMinima} ? 'bg-danger' : 'bg-success'"
+                                          th:text="${scorta.quantitaDisponibile < scorta.sogliaMinima} ? 'Sotto Soglia' : 'OK'">
+                                        OK
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#editScortaModal"
+                                            th:data-id="${scorta.ingrediente.id}"
+                                            th:data-nome="${scorta.ingrediente.nome}"
+                                            th:data-quantita="${scorta.quantitaDisponibile}"
+                                            th:data-unita="${scorta.ingrediente.unitaDiMisura}">
+                                        <i class="bi bi-pencil"></i> Modifica Scorta
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Messaggio se il magazzino è vuoto -->
+                <div th:if="${#lists.isEmpty(statoMagazzino)}" class="alert alert-info" role="alert">
+                    Il magazzino è vuoto. Aggiungi degli ingredienti e le relative scorte per visualizzare lo stato del magazzino.
+                </div>
+
+                <!-- Legenda Stati -->
+                <div class="mt-4">
+                    <h5>Legenda Stati:</h5>
+                    <span class="badge bg-success me-2">OK</span> Scorta sufficiente
+                    <span class="badge bg-danger">Sotto Soglia</span> Scorta da riordinare
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Modifica Scorta -->
+        <div class="modal fade" id="editScortaModal" tabindex="-1" aria-labelledby="editScortaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editScortaModalLabel">Modifica Scorta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="editScortaForm" method="post">
+                        <div class="modal-body">
+                            <p>Ingrediente: <strong id="editScortaNome"></strong></p>
+                            <div class="mb-3">
+                                <label for="editQuantita" class="form-label">Nuova Quantità Disponibile (<span id="editScortaUnita"></span>)</label>
+                                <input type="number" step="0.01" class="form-control" id="editQuantita" name="quantita" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript per gestire il modal -->
+        <script>
+            const editScortaModal = document.getElementById('editScortaModal');
+            editScortaModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const id = button.getAttribute('data-id');
+                const nome = button.getAttribute('data-nome');
+                const quantita = button.getAttribute('data-quantita');
+                const unita = button.getAttribute('data-unita');
+                
+                const form = editScortaModal.querySelector('#editScortaForm');
+                form.action = '/magazzino/update/' + id;
+                
+                document.getElementById('editScortaNome').textContent = nome;
+                document.getElementById('editQuantita').value = quantita;
+                document.getElementById('editScortaUnita').textContent = unita;
+            });
+        </script>
+    </div>
+</body>
+</html>

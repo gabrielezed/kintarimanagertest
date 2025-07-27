@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Gestione Ricetta</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1>Ricetta per: <span th:text="${prodotto.nome}">Pizza Margherita</span></h1>
+                    <a th:href="@{/prodotti}" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Torna ai Prodotti
+                    </a>
+                </div>
+
+                <!-- Form Aggiungi Ingrediente -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Aggiungi Ingrediente alla Ricetta</h5>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/prodotti/{id}/ricetta/add(id=${prodotto.id})}" method="post" th:object="${nuovaRigaRicetta}">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-6">
+                                    <label for="ingredienteId" class="form-label">Ingrediente</label>
+                                    <select class="form-select" id="ingredienteId" th:field="*{ingredienteId}" required>
+                                        <option value="">Seleziona un ingrediente...</option>
+                                        <option th:each="ingrediente : ${ingredienti}" 
+                                                th:value="${ingrediente.id}" 
+                                                th:text="${ingrediente.nome} + ' (' + ${ingrediente.unitaDiMisura} + ')'">
+                                            Farina (kg)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="quantita" class="form-label">Quantità</label>
+                                    <input type="number" step="0.001" class="form-control" id="quantita" th:field="*{quantita}" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-plus-circle"></i> Aggiungi
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tabella Ricetta Attuale -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Ingredienti nella Ricetta</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nome Ingrediente</th>
+                                        <th>Quantità</th>
+                                        <th>Unità di Misura</th>
+                                        <th>Azioni</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="riga : ${ricetta}">
+                                        <td th:text="${riga.ingredienteNome}">Farina</td>
+                                        <td th:text="${#numbers.formatDecimal(riga.quantita, 1, 3)}">0.500</td>
+                                        <td th:text="${riga.unitaDiMisura}">kg</td>
+                                        <td>
+                                            <form th:action="@{/prodotti/{prodottoId}/ricetta/delete/{ricettaId}(prodottoId=${prodotto.id}, ricettaId=${riga.id})}" 
+                                                  method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-sm btn-danger" 
+                                                        onclick="return confirm('Sei sicuro di voler rimuovere questo ingrediente dalla ricetta?')">
+                                                    <i class="bi bi-trash"></i> Rimuovi
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Messaggio se la ricetta è vuota -->
+                        <div th:if="${#lists.isEmpty(ricetta)}" class="alert alert-info" role="alert">
+                            La ricetta è vuota. Aggiungi degli ingredienti usando il form sopra.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

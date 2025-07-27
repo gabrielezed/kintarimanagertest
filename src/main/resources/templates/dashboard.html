@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Benvenuto in KintariManager 🍕</h1>
+                <p class="lead">Seleziona una delle opzioni seguenti per gestire la tua pizzeria.</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <!-- Card Ingredienti -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-basket text-primary" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Gestione Ingredienti</h5>
+                        <p class="card-text">Aggiungi, modifica o elimina gli ingredienti e le materie prime.</p>
+                        <a th:href="@{/ingredienti}" class="btn btn-primary">
+                            <i class="bi bi-arrow-right-circle"></i> Vai agli Ingredienti
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Prodotti -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-card-list text-success" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Gestione Prodotti</h5>
+                        <p class="card-text">Gestisci il menu dei prodotti finiti e le relative ricette.</p>
+                        <a th:href="@{/prodotti}" class="btn btn-success">
+                            <i class="bi bi-arrow-right-circle"></i> Vai ai Prodotti
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Magazzino -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-box-seam text-info" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Visualizza Magazzino</h5>
+                        <p class="card-text">Controlla lo stato delle scorte e aggiorna le quantità disponibili.</p>
+                        <a th:href="@{/magazzino}" class="btn btn-info text-white">
+                            <i class="bi bi-arrow-right-circle"></i> Vai al Magazzino
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
