@@ -4,15 +4,15 @@ Questa TODO list unificata combina le priorità strategiche del report di avanza
 
 ---
 
-### FASE 0: Infrastruttura e Sicurezza di Base
+### FASE 0: Infrastruttura e Sicurezza di Base (Completato - 24/07/2025)
 
 Queste attività sono fondamentali e propedeutiche allo sviluppo di nuove funzionalità.
 
-- [ ] **Database Persistente:** Configurare un database di produzione (PostgreSQL) per sostituire H2 temporaneo.
-- [ ] **Autenticazione Utente:**
-    - [ ] Implementare l'autenticazione tramite `formLogin` in `SecurityConfiguration`.
-    - [ ] Creare una pagina di login (`login.html`) per il frontend.
-- [ ] **Sicurezza Form:** Riabilitare la protezione CSRF e assicurarsi che tutti i form Thymeleaf la includano correttamente.
+- [x] **Database Persistente:** Configurare un database di produzione (PostgreSQL) per sostituire H2 temporaneo.
+- [x] **Autenticazione Utente:**
+    - [x] Implementare l'autenticazione tramite `formLogin` in `SecurityConfiguration`.
+    - [x] Creare una pagina di login (`login.html`) per il frontend.
+- [x ] **Sicurezza Form:** Riabilitare la protezione CSRF e assicurarsi che tutti i form Thymeleaf la includano correttamente.
 
 ---
 
